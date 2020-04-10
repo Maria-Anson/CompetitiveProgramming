@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+#include <string.h>
+
+using namespace std;
+
+// Complete the repeatedString function below.
+long repeatedString(string s, long n) 
+{
+    string f;
+    long count,i,size,asize;
+    count=0;
+    for(i=0;i<s.size();i++)
+        if(s[i]=='a')
+            count++;
+    count=count*(n/s.size());
+    for(i=0;i<n%s.size();i++)
+        if(s[i]=='a')
+            count++;
+    return count;
+}
