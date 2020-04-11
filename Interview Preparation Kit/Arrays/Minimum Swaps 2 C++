@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector<string> split_string(string);
+
+// Complete the minimumSwaps function below.
+int minimumSwaps(vector<int> arr) 
+{
+    int size,i,j,tempa,tempp,count;
+    count=0;
+    size=arr.size();
+    int index[size];
+    for(i=0;i<size;i++)
+    {
+        index[arr[i]-1]=i;
+    }
+    cout<<index[0]<<"\t"<<index[1]<<"\t"<<index[2]<<"\t"<<index[3]<<"\t";
+    for(i=0;i<size;i++)
+    {
+        if(arr[i]!=i+1)
+        {
+            count=count+1;
+            tempa=arr[i];
+            arr[i]=i+1;
+            arr[index [i]]=tempa;
+            tempp=index[i];
+            index[i]=arr[tempa];
+            index[tempa-1]=tempp;
+        }
+    }
+    return count;
+}
