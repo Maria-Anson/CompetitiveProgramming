@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector<string> split_string(string);
+
+// Complete the minimumBribes function below.
+void minimumBribes(vector<int> q) 
+{
+    int t = 0;
+    for(int i = 0; i < q.size();i++)
+    {
+        if(q[i] - i > 3)
+        {
+            cout << "Too chaotic" << endl;
+            return;
+        }
+        for(int j = max(0, q[i] - 2);j < i;j++)
+        {
+            if(q[j] > q[i]) t++;
+        }
+    }
+    cout << t << endl;
+    return;
+}
