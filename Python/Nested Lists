@@ -1,0 +1,26 @@
+def fun(x):
+    lis.sort(key = lambda x:x[1])
+    return lis
+
+lis = []
+for _ in range(int(input())):
+    name = input().strip()
+    score = float(input().strip())
+    lis.append([name,score])
+
+out = fun(lis)
+
+for val in range(0,len(out)):
+    if out[0][1]==out[val][1]:
+        pass
+    else:
+        temp = out[val][1]
+        break
+fin= []
+
+for val in range(0,len(out)):
+    if temp == out[val][1]:
+        fin.append(out[val][0])
+
+for val in sorted(fin):
+    print(val)
