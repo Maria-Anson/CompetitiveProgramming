@@ -43,7 +43,6 @@ for no in range(number):
         else:
             li.append(int(string[i]))
     convolution = convolution[:-1]
-    print(convolution)
 
     accumulator = 0
     
@@ -61,6 +60,6 @@ for no in range(number):
             accumulator = 0
             for k in range(len(filter)):
                 for l in range(len(filter)):
-                    accumulator += convolution[i+k][j+l]*filter[k][l]
+                    accumulator += convolution[(stride*i)+k][(stride*j)+l]*filter[k][l]
             output[i][j] = accumulator    
     print(output)
