@@ -20,7 +20,7 @@ for no in range(int(input())):
         else:
             li.append(int(string[i]))
     filter = filter[:-1]
-    print(filter)
+
     
     size = int(input())
     
@@ -41,22 +41,24 @@ for no in range(int(input())):
         else:
             li.append(int(string[i]))
     convolution = convolution[:-1]
-    print(convolution)
     
     accumulator = 0
     
-    output =[]
-            
-    for i in range(len(convolution):
-        for j in range(len(convolution[0]):
+    output = []
+
+    for i in range(int(((len(convolution)-len(filter[0]))/stride)+1)):
+        li =[]        
+        for j in range(int(((len(convolution[0])-len(filter[0]))/stride)+1)):
+           li.append(1)
+        output.append(li)
+
+    
+    for i in range(int(((len(convolution)-len(filter[0]))/stride)+1)):
+        for j in range(int(((len(convolution[0])-len(filter[0]))/stride)+1)):
             accumulator = 0
             for k in range(len(filter)):
-                for l in range(len(filter[0]):
-                    accumulator += convolution[i][j]*filter[k][l]
-            output[i][j] = accumulator 
-            
-            
-        
-            
-        
-            
+                for l in range(len(filter[0])):
+                    accumulator += convolution[i+k][j+l]*filter[k][l]
+            output[i][j] = accumulator    
+    print(output)
+     
