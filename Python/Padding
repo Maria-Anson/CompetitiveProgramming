@@ -1,0 +1,91 @@
+count = 0
+string = input()
+matrix = []
+
+for i in range (len(string)):
+    if count == -1:
+        break
+    elif string[i] == '[':
+        count +=1
+        li =[]
+    elif string[i] == ']':
+        count -=1
+        matrix.append(li)
+    elif string[i] == ',' or string[i] == ' ':
+        pass
+    else:
+        li.append(int(string[i]))
+
+matrix = matrix[:-1]
+print(matrix)
+
+location = input()
+layer = int(input())
+
+for char in range(0,len(location)):   
+    if location[char] == 'L' or location[char] == 'A':
+        for _ in range(layer):
+            for i in range(len(matrix)):
+                matrix[i].insert(0,0)
+            
+    if location[char] == 'R' or location[char] == 'A':
+        for _ in range(layer):
+            for i in range(len(matrix)):
+                matrix[i].append(0)
+            
+    if location[char] == 'T' or location[char] == 'A':
+        li = []
+        for _ in range(layer):
+            for i in range(len(matrix[0])):
+                li.append(0)
+        matrix.insert(0,li)
+    
+    if location[char] == 'B' or location[char] == 'A':
+        li = []
+        for _ in range(layer):
+            for i in range(len(matrix[0])):
+                li.append(0)
+        matrix.append(li)
+
+    
+print(matrix)
+
+filter = []
+string = input()
+string = string [1::]
+count = 0
+for i in range (len(string)):
+    if count == -1:
+        break
+    elif string[i] == '[':
+        count +=1
+        li =[]
+    elif string[i] == ']':
+        count -=1
+        filter.append(li)
+    elif string[i] == ',' or string[i] == ' ':
+        pass
+    else:
+        li.append(int(string[i]))
+filter = filter[:-1]
+
+print(filter)
+            
+stride = int(input())
+output = []
+
+for i in range(int(((len(matrix)-len(filter))/stride)+1)):
+    li =[]        
+    for j in range(int(((len(matrix)-len(filter))/stride)+1)):
+        li.append(1)
+    output.append(li)
+
+for i in range(int((( len(matrix)-len(filter))/stride ))+1):
+    for j in range(int((( len(matrix)-len(filter))/stride ))+1):
+        accumulator = 0
+        for k in range(len(filter)):
+            for l in range(len(filter)):
+                accumulator += matrix[(stride*i)+k][(stride*j)+l]*filter[k][l]
+        output[i][j] = accumulator    
+        
+print(output)
