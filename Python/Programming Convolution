@@ -1,0 +1,62 @@
+filter = []
+convolution = []
+
+for no in range(int(input())):
+    stride = int(input())
+    string = input()
+    string = string [1::]
+    count = 0
+    for i in range (len(string)):
+        if count == -1:
+            break
+        elif string[i] == '[':
+            count +=1
+            li =[]
+        elif string[i] == ']':
+            count -=1
+            filter.append(li)
+        elif string[i] == ',' or string[i] == ' ':
+            pass
+        else:
+            li.append(int(string[i]))
+    filter = filter[:-1]
+    print(filter)
+    
+    size = int(input())
+    
+    string = input()
+    string = string [1::]
+    count = 0
+    for i in range (len(string)):
+        if count == -1:
+            break
+        elif string[i] == '[':
+            count +=1
+            li =[]
+        elif string[i] == ']':
+            count -=1
+            convolution.append(li)
+        elif string[i] == ',' or string[i] == ' ':
+            pass
+        else:
+            li.append(int(string[i]))
+    convolution = convolution[:-1]
+    print(convolution)
+    
+    accumulator = 0
+    
+    output =[]
+            
+    for i in range(len(convolution):
+        for j in range(len(convolution[0]):
+            accumulator = 0
+            for k in range(len(filter)):
+                for l in range(len(filter[0]):
+                    accumulator += convolution[i][j]*filter[k][l]
+            output[i][j] = accumulator 
+            
+            
+        
+            
+        
+            
