@@ -1,29 +1,31 @@
 filter = []
 convolution = []
 
-for no in range(int(input())):
-    stride = int(input())
-    string = input()
-    string = string [1::]
-    count = 0
-    for i in range (len(string)):
-        if count == -1:
-            break
-        elif string[i] == '[':
-            count +=1
-            li =[]
-        elif string[i] == ']':
-            count -=1
-            filter.append(li)
-        elif string[i] == ',' or string[i] == ' ':
-            pass
-        else:
-            li.append(int(string[i]))
-    filter = filter[:-1]
+number = int(input())
 
-    
-    size = int(input())
-    
+stride = int(input())
+string = input()
+string = string [1::]
+count = 0
+for i in range (len(string)):
+    if count == -1:
+        break
+    elif string[i] == '[':
+        count +=1
+        li =[]
+    elif string[i] == ']':
+        count -=1
+        filter.append(li)
+    elif string[i] == ',' or string[i] == ' ':
+        pass
+    else:
+        li.append(int(string[i]))
+filter = filter[:-1]
+   
+size = int(input())
+
+for no in range(number):
+    convolution = []
     string = input()
     string = string [1::]
     count = 0
@@ -41,24 +43,24 @@ for no in range(int(input())):
         else:
             li.append(int(string[i]))
     convolution = convolution[:-1]
-    
+    print(convolution)
+
     accumulator = 0
     
     output = []
 
-    for i in range(int(((len(convolution)-len(filter[0]))/stride)+1)):
+    for i in range(int(((len(convolution)-len(filter))/stride)+1)):
         li =[]        
-        for j in range(int(((len(convolution[0])-len(filter[0]))/stride)+1)):
+        for j in range(int(((len(convolution)-len(filter))/stride)+1)):
            li.append(1)
         output.append(li)
 
     
-    for i in range(int(((len(convolution)-len(filter[0]))/stride)+1)):
-        for j in range(int(((len(convolution[0])-len(filter[0]))/stride)+1)):
+    for i in range(int((( len(convolution)-len(filter))/stride ))+1):
+        for j in range((int(( len(convolution)-len(filter))/stride ))+1):
             accumulator = 0
             for k in range(len(filter)):
-                for l in range(len(filter[0])):
+                for l in range(len(filter)):
                     accumulator += convolution[i+k][j+l]*filter[k][l]
             output[i][j] = accumulator    
     print(output)
-     
