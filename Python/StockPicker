@@ -1,0 +1,15 @@
+def StockPicker(arr):
+  diff = []
+  profit = 0
+  for i in range(len(arr)):
+    pos = arr[i]
+    for j in range(len(arr[i:])):
+      diff.append(arr[i+j]-pos)
+    if max(diff)>profit:
+      profit = max(diff)
+    diff = []
+  # code goes here
+  return profit
+
+# keep this function call here 
+print(StockPicker(input()))
