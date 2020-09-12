@@ -1,0 +1,41 @@
+number = int(input())
+
+
+for j in range(number):
+    filter = []
+    string = input()
+    string = string [1::]
+    count = 0
+    for i in range (len(string)):
+        if count == -1:
+            break
+        elif string[i] == '[':
+            count +=1
+            li =[]
+        elif string[i] == ']':
+            count -=1
+            filter.append(li)
+        elif string[i] == ',' or string[i] == ' ':
+            pass
+        else:
+            if int(string[i])<150 and (string[i-1] !=',' and string[i-1]!=' ' and string[i-1]!='['):
+                li[-1] = int(str(li[-1])+string[i])
+            else:
+                li.append(int(string[i]))
+    filter = filter[:-1]
+    flag = 0
+    new = []
+    for val in filter:
+        a = []
+        for vaal in val:
+            if vaal == 0 or vaal == 1:
+                a.append(vaal)
+            elif vaal >150:
+                print("array value out of range")
+                flag = 1
+                break                
+            else:
+                a.append(vaal//2)
+        new.append(a)
+    if flag == 0:
+        print(new)
