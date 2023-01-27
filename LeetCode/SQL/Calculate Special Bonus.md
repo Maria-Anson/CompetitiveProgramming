@@ -51,6 +51,7 @@ SELECT employee_id,
     WHEN name NOT LIKE 'M%' and employee_id % 2 =1 THEN salary
     ELSE 0
     END AS bonus
+    ORDER BY employee_id
 FROM Employees;
 ```
 >
