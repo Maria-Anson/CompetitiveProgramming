@@ -36,7 +36,6 @@ class Solution:
             for i in range(2,n):
                 # Bellman equation
                 dp[i] = max(dp[i-1], nums[i]+dp[i-2])
-            print(dp)    
             return dp[-1]
 ```
 > -- https://leetcode.com/problems/house-robber/description/?envType=study-plan&id=dynamic-programming-i#qd-content
